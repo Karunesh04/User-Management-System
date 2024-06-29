@@ -54,7 +54,7 @@ Design and develop a user management system using HTML, CSS, JavaScript, Express
 
 ## API Documentation
 
-1. User Registration
+## 1. User Registration
     Endpoint: /users/register
     Method: POST
     Request:
@@ -70,7 +70,7 @@ Design and develop a user management system using HTML, CSS, JavaScript, Express
         "token": "jwt_token_here"
         }
 
-1. User login
+## 1. User login
     Endpoint: /users/login
     Method: POST
     Request:
