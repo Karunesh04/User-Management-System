@@ -1,7 +1,7 @@
-# User Management Backend
+# User Management System
 
 ## Objective
-Design and develop a user management backend system using Express.js and MongoDB, allowing users to create and login accounts.
+Design and develop a user management system using HTML, CSS, JavaScript, Express.js and MongoDB, allowing users to create and login accounts.
 
 ## Requirements
 - Implement a RESTful API using Express.js for handling user-related operations.
