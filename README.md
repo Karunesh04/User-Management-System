@@ -1,7 +1,7 @@
 # User Management System
 
 ## Objective
-Design and develop a user management system using HTML, CSS, JavaScript, Express.js and MongoDB, allowing users to create and login accounts.
+This User Management System is a web application designed to handle user registration, login, and management. The application is built with a backend server using Node.js, Express, and MongoDB, and a frontend using HTML, CSS, and JavaScript.
 
 ## Requirements
 - Implement a RESTful API using Express.js for handling user-related operations.
@@ -11,23 +11,9 @@ Design and develop a user management system using HTML, CSS, JavaScript, Express
 - Develop clear and well-structured code with appropriate comments.
 - Provide API documentation, including endpoints, request/response formats, and error handling.
 
-## Folder Structure
-    user-management-backend/
-    ├── config/
-    │ └── db.js
-    ├── controllers/
-    │ └── userController.js
-    ├── models/
-    │ └── userModel.js
-    ├── routes/
-    │ └── userRoutes.js
-    ├── node_modules/
-    ├── .env
-    ├── app.js
-    ├── index.js
-    ├── package-lock.json
-    └── package.json
-
+## Prerequisites
+  - Node.js
+  - MongoDB
 
 ## Setup Instructions
 1. Clone the repository:
@@ -36,7 +22,7 @@ Design and develop a user management system using HTML, CSS, JavaScript, Express
 
 2. Navigate to the project directory:
    ```sh
-   cd user-management-backend
+   cd user-management-system
 
 3. Install dependencies:
    ```sh
@@ -46,6 +32,7 @@ Design and develop a user management system using HTML, CSS, JavaScript, Express
    PORT=3000
    MONGO_URI=mongodb://localhost:27017/yourdbname
    JWT_SECRET=your_jwt_secret_key
+   CLIENT_URL= request-origin
 
 5. Start the server:
    ```sh
@@ -55,7 +42,7 @@ Design and develop a user management system using HTML, CSS, JavaScript, Express
 ## API Documentation
 
 ## 1. User Registration
-    Endpoint: /users/register
+    Endpoint: /api/users/register
     Method: POST
     Request:
         {
@@ -71,7 +58,7 @@ Design and develop a user management system using HTML, CSS, JavaScript, Express
         }
 
 ## 1. User login
-    Endpoint: /users/login
+    Endpoint: /api/users/login
     Method: POST
     Request:
         {
