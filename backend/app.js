@@ -11,9 +11,14 @@ conncetToDb()
 
 app.use(express.json())
 //to prevent making request to diff domain which is not serving 
-app.use(cors())
+app.use(cors({
+    origin: process.env.CLIENT_URL, // Allow only this origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allow these HTTP methods
+    credentials: true, // Allow cookies to be sent
+    optionsSuccessStatus: 204
+}));
 app.use(errorHandler)
 
-app.use('/users', userRoutes)
+app.use('/api/users', userRoutes)
 
 module.exports = app

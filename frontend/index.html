@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management</title>
+    <link rel="stylesheet" href="./public/style.css">    
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="form-wrapper sign-in">
+        <form action="/api/users/login" method="post" id="loginForm">
+          <h2>Login</h2>
+          <div class="input-group">
+            <input id="login_email" type="email" name="email" required />
+            <label for="login_email">Email</label>
+          </div>
+          <div class="input-group">
+            <input id="login_password" type="password" name="password" required />
+            <label for="login_password">Password</label>
+          </div>
+          <div class="remember">
+            <input id="login_checkbox" type="checkbox" checked/>
+            <label for="login_checkbox">Remember me</label>
+          </div>
+          <button type="submit">Login</button>
+          <div class="signUp-link">
+            <p><span>Forgot Password?</span></p>
+            <p>
+              Don't have an account?
+              <a href="#" class="signUpBtn-link">Sign Up</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-wrapper sign-up">
+        <form action="/api/users/register" method="post" id="signupForm">
+          <h2>Sign Up</h2>
+          <div class="input-group">
+            <input id="signup_username" type="text" name="name"  required/>
+            <label for="signup_username">Username</label>
+          </div>
+          <div class="input-group">
+            <input id="signup_email" type="email" name="email" required />
+            <label for="signup_email">Email</label>
+          </div>
+          <div class="input-group">
+            <input id="signup_password" type="password" name="passsword" required />
+            <label for="signup_password">Password</label>
+          </div>
+          <div class="remember">
+            <input id="signup_checkbox" type="checkbox" checked/>
+            <label for="signup_checkbox"
+              >I agree to the terms & conditions</label
+            >
+          </div>
+          <button type="submit">Sign Up</button>
+          <div class="signUp-link">
+            <p>
+              Already have an account?
+              <a href="#" class="signInBtn-link">Sign In</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="./public/script.js"></script>
+  </body>
+</html>
