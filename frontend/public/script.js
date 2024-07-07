@@ -16,7 +16,7 @@
   .querySelector(".sign-in form")
   .addEventListener("submit", async (event) => {
     event.preventDefault();
-    const email = document.getElementById("login_email").value;
+    const username = document.getElementById("login_username").value;
     const password = document.getElementById("login_password").value;
 
     try {
@@ -25,11 +25,12 @@
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username, password }),
       });
 
       if (response.ok) {
         alert("Login successful");
+        window.location.href = './public/user.html'
       } else {
         alert("Invalid credentials");
       }
@@ -42,27 +43,29 @@ document
   .querySelector(".sign-up form")
   .addEventListener("submit", async (event) => {
     event.preventDefault();
-    const name = document.getElementById("signup_username").value;
+    const name = document.getElementById("signup_name").value;
+    const username = document.getElementById("signup_username").value;
     const email = document.getElementById("signup_email").value;
     const password = document.getElementById("signup_password").value;
+    const bio = document.getElementById("bio").value;
 
     try {
-      const response = await fetch("http://localhost:8000/api/users/register", {
+      const response = await fetch("http://localhost:8000/api/users/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ name, username, email, password, bio}),
       });
 
       if (response.ok) {
         alert("User registered successfully");
-      // } else {
-      //   alert("Error registering user");
+        wrapper.classList.toggle('active');
+      } else {
+        alert("Error registering user");
       }
     } catch (error) {
-      alert("ERROR: ", error)
+      console.log("Error: ", error.message)
       console.error("Error:", error);
-      console.log("Error:", error);
     }
   });

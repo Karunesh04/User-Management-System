@@ -13,8 +13,8 @@
         <form action="/api/users/login" method="post" id="loginForm">
           <h2>Login</h2>
           <div class="input-group">
-            <input id="login_email" type="email" name="email" required />
-            <label for="login_email">Email</label>
+            <input id="login_username" type="text" name="username" required />
+            <label for="login_username">Username</label>
           </div>
           <div class="input-group">
             <input id="login_password" type="password" name="password" required />
@@ -39,7 +39,11 @@
         <form action="/api/users/register" method="post" id="signupForm">
           <h2>Sign Up</h2>
           <div class="input-group">
-            <input id="signup_username" type="text" name="name"  required/>
+            <input id="signup_name" type="text" name="name"  required/>
+            <label for="signup_name">Name</label>
+          </div>
+          <div class="input-group">
+            <input id="signup_username" type="text" name="username"  required/>
             <label for="signup_username">Username</label>
           </div>
           <div class="input-group">
@@ -50,12 +54,11 @@
             <input id="signup_password" type="password" name="passsword" required />
             <label for="signup_password">Password</label>
           </div>
-          <div class="remember">
-            <input id="signup_checkbox" type="checkbox" checked/>
-            <label for="signup_checkbox"
-              >I agree to the terms & conditions</label
-            >
+          <div class="input-group">
+            <input id="bio" type="text" name="bio" required/>
+            <label for="bio">Bio</label>
           </div>
+          
           <button type="submit">Sign Up</button>
           <div class="signUp-link">
             <p>

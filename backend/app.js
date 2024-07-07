@@ -3,6 +3,7 @@ const conncetToDb = require('./config/db.js')
 const userRoutes = require('./routes/userRoutes.js')
 const errorHandler = require('./middleware/errorHandler.js')
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 require('dotenv').config()
 
 const app = express()
@@ -10,6 +11,7 @@ const app = express()
 conncetToDb()
 
 app.use(express.json())
+app.use(cookieParser())
 //to prevent making request to diff domain which is not serving 
 app.use(cors({
     origin: process.env.CLIENT_URL, // Allow only this origin

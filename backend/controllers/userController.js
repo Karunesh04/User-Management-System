@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
 exports.registerUser = async (req,res)=>{
-    const {name, email, password} = req.body
+    const {name, username, email, password, bio} = req.body
 
     try{
         let user = await User.findOne({email})
@@ -20,8 +20,10 @@ exports.registerUser = async (req,res)=>{
 
         user = new User({
             name,
+            username,
             email,
-            password: hashedPass
+            password: hashedPass,
+            bio
         })
 
         await user.save()
@@ -43,19 +45,24 @@ exports.registerUser = async (req,res)=>{
 }
 
 exports.loginUser = async (req,res)=>{
-    const {email, password} = req.body
+    const {username, password} = req.body
 
     try{
-        const user = await User.findOne({email})
+        const user = await User.findOne({username})
+
+        if(!user){
+            throw new Error("User doesn't exist")
+        }
 
         const isMatch = await bcrypt.compare(password, user.password)
 
-        if(!user || !isMatch){
-            throw new Erro('Invalid credentials')
+        if(!isMatch){
+            throw new Error('Invalid credentials')
         }
 
         const payload = {user: {id: user.id}}
         const token = jwt.sign(payload, process.env.JWT_SECRET,{expiresIn: '1h'});
+        res.cookie('token', token, { httpOnly: true })
 
         res.status(201).json({
             success: true,
